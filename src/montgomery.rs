@@ -188,12 +188,12 @@ where
         + core::ops::ShlAssign<u32>
         + From<u8>,
 {
-    fn calc_n_prime(n: &T, s: u32) -> T {
+    fn calc_n_prime(n: &T, bits: u32) -> T {
         let mut x = (-n.clone()) & &T::from(7);
         let mut b = 3;
         let rm = {
             let mut t = T::from(1);
-            t <<= s;
+            t <<= bits;
             t -= &T::from(1);
             t
         };
@@ -205,7 +205,7 @@ where
             nx *= &x;
             nx &= &rm;
             b *= 2;
-            if b >= s {
+            if b >= bits {
                 return nx;
             }
             x = nx;
