@@ -144,6 +144,7 @@ fn montgomery64_test(n: usize) {
     }
 }
 
+#[test]
 fn montgomery_num() {
     let m: BigInt = (BigInt::from(1) << 107) - 1;
     let mon = Montgomery::new(m.clone());
@@ -153,6 +154,7 @@ fn montgomery_num() {
     assert_eq!(r, BigInt::from(1));
 }
 
+#[test]
 fn montgomery_rug() {
     let m = Integer::from((Integer::from(1) << 107) - 1);
     let mon = Montgomery::new(m.clone());
