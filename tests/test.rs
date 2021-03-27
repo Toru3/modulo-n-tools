@@ -156,7 +156,7 @@ fn montgomery_num() {
 
 #[test]
 fn montgomery_rug() {
-    let m = Integer::from((Integer::from(1) << 107) - 1);
+    let m: Integer = (Integer::from(1) << 107) - 1;
     let mon = Montgomery::new(m.clone());
     let a = Integer::from(2);
     let p = m - 1;
