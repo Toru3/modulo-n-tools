@@ -120,7 +120,7 @@ where
     y
 }
 
-/// $`a\cdot b^c \bmod n`$
+/// $`a\cdot b^p \bmod n`$
 ///
 /// Input: $`-\text{modulo} \leq b \leq \text{modulo}`$,
 /// c is non-negative integer.  
@@ -132,7 +132,7 @@ where
 /// assert_eq!(mul_pow_mod(1, -2, 3, &4), 0);
 /// assert_eq!(mul_pow_mod(1, 2, 3, &7), 1);
 /// ```
-pub fn mul_pow_mod<T, U>(a: T, b: T, mut c: U, modulo: &T) -> T
+pub fn mul_pow_mod<T, U>(a: T, base: T, mut power: U, modulo: &T) -> T
 where
     for<'x> &'x T: Mul<Output = T> + Rem<Output = T>,
     U: Ord + ShrAssign<u8> + From<u8>,
@@ -140,14 +140,14 @@ where
 {
     let c0 = U::from(0);
     let c1 = U::from(1);
-    let mut x = b;
+    let mut x = base;
     let mut y = a;
-    while c > c0 {
-        if &c & &c1 != c0 {
+    while power > c0 {
+        if &power & &c1 != c0 {
             y = mul_mod(&x, &y, modulo);
         }
         x = mul_mod(&x, &x, modulo);
-        c >>= 1;
+        power >>= 1;
     }
     y
 }
