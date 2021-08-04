@@ -13,3 +13,6 @@ let m = Montgomery64::new(57);
 let d = m.powmod(5, 42);
 assert_eq!(d, 7);
 ```
+
+# Licence
+AGPL-3.0-or-later

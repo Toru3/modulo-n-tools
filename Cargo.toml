@@ -1,10 +1,10 @@
 [package]
 name = "modulo-n-tools"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["Toru3 <ryuutet@gmail.com>"]
 edition = "2018"
 description = "modulo tools"
-license = "MIT OR Apache-2.0"
+license = "AGPL-3.0-or-later"
 documentation = "https://docs.rs/modulo-n-tools/"
 repository = "https://gitlab.com/Toru3/modulo-n-tools"
 readme = "README.md"
