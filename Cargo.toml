@@ -13,10 +13,10 @@ categories = ["no-std", "mathematics", "algorithms"]
 
 [dependencies]
 [dev-dependencies]
-test-case = "1.1.0"
-rand = "0.8.3"
+test-case = "1.2.0"
+rand = "0.8.4"
 num = "0.4.0"
-rug = "1.11.0"
+rug = "1.13.0"
 [package.metadata.docs.rs]
 rustdoc-args = [
     "--html-in-header",
