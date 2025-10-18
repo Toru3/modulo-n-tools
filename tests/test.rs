@@ -78,13 +78,13 @@ fn pow_mod_test(n: usize) {
     let mut rng = rand::thread_rng();
     for _ in 0..n {
         let m = loop {
-            let m = i64::from(rng.gen::<i32>().abs() / 2 + 1);
+            let m = i64::from(rng.gen::<i32>()).abs() / 2 + 1;
             if is_prime(m) {
                 break m;
             }
         };
         let a = rng.gen::<i64>() % m;
-        assert_eq!(pow_mod(a, m, &m), a);
+        assert_eq!(sub_mod(&pow_mod(a, m, &m), &a, &m), 0);
     }
 }
 
